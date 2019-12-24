@@ -7,5 +7,3 @@ clean:
 
 build:
 	go build -o $(TARGET) main.go
-
-rpi:
