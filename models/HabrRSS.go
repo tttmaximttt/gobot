@@ -32,9 +32,7 @@ func (self *rss) GetNews(url string) (*rss, error) {
   body, _ := ioutil.ReadAll(resp.Body)
 
   err = xml.Unmarshal(body, self)
-  if err != nil {
-    return nil, err
-  }
+  if err != nil { return nil, err }
 
   return self, nil
 }
