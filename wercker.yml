@@ -12,13 +12,6 @@ build:
         dockerfile: Dockerfile
         image-name: gobot
         ports: "8383"
-        registry-auth-config: |
-          {
-            "hub.docker.com": {
-              "username": $USERNAME,
-              "password": $PASSWORD
-            }
-          }
 deploy:
   steps:
     - internal/docker-push:
