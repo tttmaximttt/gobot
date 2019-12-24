@@ -1,24 +1,30 @@
-# The container definition we want to use for developing our app
-box:
-  id: golang
-  ports:
-    - "8383"
+box: golang
+
 dev:
   steps:
     - internal/watch:
-        code: |
-          go build ./...
-          ./source
+        code: go run main.go
         reload: true
 
 build:
   steps:
-    - wercker/golint
-    - script:
-        name: go build
-        code: |
-          go build ./...
-    - script:
-        name: go test
-        code: |
-          go test ./...
+    - internal/docker-build:
+        dockerfile: Dockerfile
+        image-name: gobot
+        ports: "8383"
+        registry-auth-config: |
+          {
+            "hub.docker.com": {
+              "username": $USERNAME,
+              "password": $PASSWORD
+            }
+          }
+deploy:
+  steps:
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        port: "8383"
+        tag: latest
+        repository: tttmaximttt/gobot
+        registry: https://registry.hub.docker.com
