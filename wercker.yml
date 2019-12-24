@@ -12,6 +12,13 @@ build:
         dockerfile: Dockerfile
         image-name: gobot
         ports: "8383"
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        port: "8383"
+        tag: latest
+        repository: tttmaximttt/gobot
+        registry: https://registry.hub.docker.com
 
 deploy:
   steps:
