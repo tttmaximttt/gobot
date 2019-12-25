@@ -1,12 +1,8 @@
 version: 2.1
 jobs:
   deploy_image:
-    working_directory: ~/gobotApp
-    docker:
-      - image: circleci/golang:1.13
+    machine: true
     steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
       - checkout
       - run:
           name: build the app docker image
