@@ -3,7 +3,7 @@ jobs:
   deploy_image:
     working_directory: ~/app
     machine:
-      image: golang:1.13.5-alpine3.10
+      image: golang
       docker_layer_caching: true    # default - false
     steps:
       - checkout
