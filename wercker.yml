@@ -1,4 +1,4 @@
-box: golang:1.13.5-alpine3.10
+box: golang:1.13
 
 dev:
   steps:
@@ -9,10 +9,12 @@ dev:
 build:
   steps:
     - internal/docker-build:
+        box: golang:1.13.5-alpine3.10 as builder
         dockerfile: Dockerfile
         image-name: gobot
         ports: "8383"
     - internal/docker-push:
+        box: resin/rpi-raspbian:latest
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
