@@ -2,6 +2,7 @@ version: 2.1
 jobs:
   deploy_image:
     working_directory: ~/app
+    macos: true
     steps:
       - checkout
       - run:
