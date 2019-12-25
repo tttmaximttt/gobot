@@ -12,5 +12,4 @@ FROM arm64v8/alpine:3.7
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/hello /app/hello
 EXPOSE 8383/tcp
-
 ENTRYPOINT ["/app/hello"]
