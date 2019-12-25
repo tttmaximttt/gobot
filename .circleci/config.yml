@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   deploy_image:
     docker:
-      - image: resin/rpi-raspbian:latest
+      - image: circleci/golang:1.13
     steps:
       - checkout
       - run:
