@@ -16,7 +16,7 @@ build:
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
-        tag: latest
+        tag: 0.0.1
         repository: tttmaximttt/gobot
         registry: https://registry.hub.docker.com
 
