@@ -8,8 +8,7 @@ RUN go mod verify
 RUN GOOS=linux GOARCH=arm go build -ldflags="-w -s" -o hello
 
 #FROM alpine:latest
-FROM arm64v8/ubuntu
-
+FROM arm64v8/alpine:3.7
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/hello /app/hello
 EXPOSE 8383/tcp
