@@ -1,8 +1,9 @@
-box: resin/rpi-raspbian:latest
+box: golang:1.13.5-alpine3.10
 
 build:
   steps:
     - internal/docker-build:
+        box: resin/rpi-raspbian:latest
         dockerfile: Dockerfile
         image-name: gobot
         ports: "8383"
