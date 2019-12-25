@@ -2,14 +2,14 @@ version: 2.1
 jobs:
   deploy_image:
     docker:
-      - image: circleci/golang:1.13
+      - image: resin/rpi-raspbian:latest
     steps:
       - checkout
       - run:
           name: build the app docker image
           command: |
             TAG=0.0.$CIRCLE_BUILD_NUM
-            docker build tttmaximttt/gobot:TAG .
+            docker build --tag tttmaximttt/gobot:TAG .
       - run:
           name: push image to docker hub
           command: |
