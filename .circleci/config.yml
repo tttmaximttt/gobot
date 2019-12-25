@@ -2,8 +2,6 @@ version: 2.1
 jobs:
   deploy_image:
     working_directory: ~/app
-    docker:
-      - image: circleci/golang:latest
     machine: true
     steps:
       - checkout
