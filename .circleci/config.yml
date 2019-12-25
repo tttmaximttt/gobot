@@ -13,10 +13,9 @@ jobs:
       - run:
           name: build the app docker image
           command: |
-            TAG=0.0.$CIRCLE_BUILD_NUM
-            docker build --tag tttmaximttt/gobot:$TAG .
+            docker build --tag tttmaximttt/gobot:$CIRCLE_BRANCH .
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-            docker push tttmaximttt/gobot:$TAG
+            docker push tttmaximttt/gobot:$CIRCLE_BRANCH
 
 
 workflows:
