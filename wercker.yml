@@ -1,3 +1,5 @@
+box: golang:1.13
+
 build:
   steps:
     - internal/docker-build:
