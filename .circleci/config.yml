@@ -3,6 +3,7 @@ jobs:
   deploy_image:
     working_directory: ~/app
     machine: true
+    executor: true
     steps:
       - checkout
       - run:
