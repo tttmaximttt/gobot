@@ -2,9 +2,13 @@ version: 2.1
 jobs:
   deploy_image:
     working_directory: ~/app
-    macos: true
+    docker:
+      - image: circleci/arm64v8/alpine:3.11
+    machine: true
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: build the app docker image
           command: |
