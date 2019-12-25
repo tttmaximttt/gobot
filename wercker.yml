@@ -1,12 +1,14 @@
-box: arm64v8/ubuntu:latest
+box: alpine:3.13
 
 build:
   steps:
     - internal/docker-build:
+        box: arm64v8/alpine:3.11
         dockerfile: Dockerfile
         image-name: gobot
         ports: "8383"
     - internal/docker-push:
+        box: arm64v8/alpine:3.11
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
