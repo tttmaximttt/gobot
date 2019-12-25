@@ -1,4 +1,4 @@
-box: wercker-box-gcc-arm-embedded
+box: arm64v8/alpine:3.11
 
 build:
   steps:
