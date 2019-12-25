@@ -11,6 +11,7 @@ RUN GOOS=linux GOARCH=arm go build -ldflags="-w -s" -o hello
 FROM arm64v8/alpine:3.11
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/hello /app/hello
+RUN ls
 EXPOSE 8383/tcp
 
 ENTRYPOINT ["/app/hello"]
