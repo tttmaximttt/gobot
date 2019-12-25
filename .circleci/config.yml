@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   deploy_image:
-    working_directory: /gobotApp
+    working_directory: ~/gobotApp
     docker:
       - image: circleci/golang:1.13
     steps:
