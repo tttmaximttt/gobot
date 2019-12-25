@@ -1,4 +1,9 @@
-box: golang
+box:
+  Id: hubuser/pyminifier
+  username: $USERNAME
+  password: $PASSWORD
+  tag: 0.0.6
+  registry: https://registry.hub.docker.com
 
 dev:
   steps:
@@ -16,7 +21,7 @@ build:
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
-        tag: 0.0.1
+        tag: 0.0.6
         repository: tttmaximttt/gobot
         registry: https://registry.hub.docker.com
 
@@ -26,6 +31,6 @@ deploy:
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
-        tag: 0.0.1
+        tag: 0.0.6
         repository: tttmaximttt/gobot
         registry: https://registry.hub.docker.com
