@@ -53,9 +53,7 @@ func main() {
 
   bot, err := botApp.New(*conf)
 
-  if err != nil {
-    panic(err)
-  }
+  if err != nil {panic(err)}
 
   // bot.Debug = true
   log.WithFields(log.Fields{
