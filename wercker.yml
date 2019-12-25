@@ -1,4 +1,4 @@
-box: alpine:3.11
+box: arm64v8/alpine:3.11
 
 build:
   steps:
