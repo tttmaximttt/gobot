@@ -1,4 +1,4 @@
-box: wercker-arm-none-eabi-gcc
+box: wercker-box-gcc-arm-embedded
 
 build:
   steps:
