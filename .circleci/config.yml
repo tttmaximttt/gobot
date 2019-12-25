@@ -5,7 +5,7 @@ jobs:
   deploy_image:
     working_directory: ~/repo
     docker:
-      - image: circleci/buildpack-deps:latest
+      - image: circleci/golang:latest
     steps:
       - checkout
       - setup_remote_docker:
