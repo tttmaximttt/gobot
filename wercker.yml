@@ -1,4 +1,4 @@
-box: alpine:3.13
+box: alpine:3.11
 
 build:
   steps:
