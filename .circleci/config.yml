@@ -11,7 +11,7 @@ jobs:
       - run:
           name: build the app docker image
           command: |
-            docker run --rm --privileged multiarch/qemu-user-static:register
+            docker run --rm --privileged multiarch/qemu-user-static:register --reset
             docker build --tag tttmaximttt/gobot:$CIRCLE_BRANCH .
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
             docker push tttmaximttt/gobot:$CIRCLE_BRANCH
