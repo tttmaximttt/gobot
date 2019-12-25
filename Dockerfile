@@ -8,7 +8,7 @@ RUN go mod verify
 RUN GOOS=linux GOARCH=arm go build -ldflags="-w -s" -o hello
 
 #FROM alpine:latest
-FROM golang:1.13.5-alpine3.10
+FROM resin/rpi-raspbian:latest
 
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/hello /app/hello

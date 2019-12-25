@@ -1,4 +1,4 @@
-box: ubuntu:latest
+box: resin/rpi-raspbian:latest
 
 build:
   steps:
@@ -6,7 +6,6 @@ build:
         dockerfile: Dockerfile
         image-name: gobot
         ports: "8383"
-
     - internal/docker-push:
         username: $USERNAME
         password: $PASSWORD
