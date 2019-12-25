@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 RUN go mod download
 RUN go mod verify
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o hello
+RUN GOARCH=arm GOOS=linux go build -ldflags="-w -s" -o hello
 
 FROM alpine:latest
 
