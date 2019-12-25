@@ -1,4 +1,6 @@
-version: 2
+orbs:
+  farm: f0cal/farm@1.0.0
+version: 2.1
 jobs:
   deploy_image:
     working_directory: ~/repo
@@ -18,7 +20,7 @@ jobs:
 
 
 workflows:
-  version: 2
+  version: 2.1
   deploy:
     jobs:
       - deploy_image:
