@@ -1,9 +1,4 @@
-box:
-  Id: hubuser/pyminifier
-  username: $USERNAME
-  password: $PASSWORD
-  tag: 0.0.6
-  registry: https://registry.hub.docker.com
+box: resin/rpi-raspbian:latest
 
 dev:
   steps:
@@ -21,7 +16,7 @@ build:
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
-        tag: 0.0.6
+        tag: 0.0.1
         repository: tttmaximttt/gobot
         registry: https://registry.hub.docker.com
 
@@ -31,6 +26,6 @@ deploy:
         username: $USERNAME
         password: $PASSWORD
         port: "8383"
-        tag: 0.0.6
+        tag: 0.0.1
         repository: tttmaximttt/gobot
         registry: https://registry.hub.docker.com
