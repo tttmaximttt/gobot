@@ -5,9 +5,11 @@ WORKDIR /app
 COPY . .
 RUN go mod download
 RUN go mod verify
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o hello
+RUN GOOS=linux GOARCH=arm go build -ldflags="-w -s" -o hello
 
-FROM alpine:latest
+#FROM alpine:latest
+FROM resin/rpi-raspbian:latest
+
 
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/hello /app/hello

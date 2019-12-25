@@ -1,8 +1,30 @@
-version: 2
+version: 2.1
 jobs:
-  build:
+  deploy_image:
+    working_directory: /gobotApp
     docker:
       - image: circleci/golang:1.13
-    working_directory: /gobotApp
     steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
       - checkout
+      - run:
+          name: build the app docker image
+          command: |
+            TAG=0.0.$CIRCLE_BUILD_NUM
+            docker build --tag tttmaximttt/gobot:TAG .
+      - run:
+          name: push image to docker hub
+          command: |
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            docker push tttmaximttt/gobot:$TAG
+
+workflows:
+  version: 2.1
+  deploy:
+    jobs:
+      - deploy_image:
+          context: DOCKER_HUB
+          filters:
+            branches:
+              only: master
